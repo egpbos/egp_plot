@@ -15,4 +15,9 @@ def subplots(total, wrap=None, **kwargs):
         cols = total
         rows = 1
     fig, ax = plt.subplots(rows, cols, **kwargs)
+    
+    # disable superfluous subplots
+    for ix in range(-1, -1 - (cols * rows - total), -1):
+        ax.flatten()[ix].axis('off')
+
     return fig, ax

@@ -8,7 +8,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 
 # To update the package version number, edit egp_plot/__version__.py
 version = {}
-with open(os.path.join(here, 'egp_plot', '__version__.py')) as f:
+with open(os.path.join(here, 'egp', 'plot', '__version__.py')) as f:
     exec(f.read(), version)
 
 with open('README.rst') as readme_file:
@@ -26,7 +26,7 @@ setup(
         'egp_plot',
     ],
     package_dir={'egp_plot':
-                 'egp_plot'},
+                 'egp/plot'},
     include_package_data=True,
     license="Apache Software License 2.0",
     zip_safe=False,
@@ -42,7 +42,9 @@ setup(
         'Programming Language :: Python :: 3.6',
     ],
     test_suite='tests',
-    install_requires=[],  # FIXME: add your package's dependencies to this list
+    install_requires=[
+        'matplotlib'
+    ],
     setup_requires=[
         # dependency for `python setup.py test`
         'pytest-runner',
